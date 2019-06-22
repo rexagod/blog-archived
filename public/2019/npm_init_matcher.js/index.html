@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  
+  <link rel="next" href="/2019/vi_.travis.yml/" />
+  <link rel="canonical" href="/2019/npm_init_matcher.js/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           $ npm init matcher.js | rexablog
+       
+  </title>
+  <meta name="title" content="$ npm init matcher.js | rexablog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="$ npm init matcher.js"/>
+<meta name="twitter:description" content="Google Summer of Code @ Public Lab: Summary#1"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "$ npm init matcher.js",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/2019/npm_init_matcher.js/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "/",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  
+  "wordcount": 1298,
+  "url": "/2019/npm_init_matcher.js/",
+  "datePublished": "2019-06-10T04:10:06+05:30",
+  "dateModified": "2019-06-10T04:10:06+05:30",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "rexagod",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Pranshu Srivastava"
+  },
+  "description": "Google Summer of Code @ Public Lab: Summary#1"
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="/">rexablog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="/">rexablog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">$ npm init matcher.js</h1>
+        <div class="post-meta">
+            Written by <a href="/" rel="author">Pranshu Srivastava</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-06-10 >10 June 2019</time>
+                </span>
+                
+                <i class="iconfont icon-timer"></i>
+                7 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/summary_1.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p><br/></p>
+
+<h1 id="public-lab-1-sup-st-sup-2-sup-nd-sup-week">Public Lab: 1<sup>st</sup> &amp; 2<sup>nd</sup> Week</h1>
+
+<blockquote>
+<p>From refactoring an 7-year-old library, to embedding node support into it, while optimizing it for browser, the first two weeks started off as one of the most interesting but crucial stages of my timeline, and yet somehow, we made it work.</p>
+</blockquote>
+
+<p>I wouldn&rsquo;t be wrong to say that this period of <mark>Google Summer of Code at Public Lab</mark> was indeed, in my case, rather epiphanic. I&rsquo;ll explain.</p>
+
+<p>Other than reviewing PRs and making FTOs, most of my time spent at Public Lab right till the first evaluation, required me to essentially work on a &ldquo;pattern-mining&rdquo; library, called <code>matcher.js</code>, which would initially consist of just a single module called <a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a> that would help users in searching for rich matches across two images, but interestingly grew to encompass another library, a <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> module, which was originally built to pass custom commands to manipulate the test environment and monitor changes on a local server, and with time, would power Public Lab&rsquo;s first ever headless-driven test written to support Continuous Integration platforms, including cross-posting.</p>
+
+<h2 id="matcher-core-https-github-com-publiclab-matcher-core"><a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a></h2>
+
+<p>The <a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a> module works on <a href="http://www.willowgarage.com/sites/default/files/orb_final.pdf" target="_blank">Oriented FAST and Rotated BRIEF (ORB)</a> algorithm and was developed at OpenCV labs by Ethan Rublee, Vincent Rabaud, Kurt Konolige, and Gary R. Bradski in 2011, as an efficient and viable alternative to SIFT and SURF. ORB was conceived mainly because SIFT and SURF are patented algorithms. ORB, however, is free to use.</p>
+
+<p>The idea of abstracting such a sophisticated piece of code, and mending it to Public Lab&rsquo;s custom needs seemed ambitious to say the least, and of course, the implementation proved to be my primary concern for the first few days.</p>
+
+<pre><code class="language-js">
+/* a simpler, yet much better way
+* that Eugene kept in mind during
+* the initial implementations
+*/
+
+// the snippet below analyzed all pixels for corners, but initialized `matchT` only for the rich matches
+
+let i = 640 * 480;
+      while (--i &gt;= 0) {
+        screenCorners[i] = new jsfeat.keypoint_t(0, 0, 0, 0, -1);
+        matches[i] = new matchT();      
+      }
+</code></pre>
+
+<p>As a matter of fact, all the code that was written in the first week unfortunately did not meet my expectations, i.e., I had initially tried to couple ORB&rsquo;s FAST and BRIEF features with <code>Uint8ClampedArray</code>s instead of the original <code>matchT</code> structures, which did not seem to work out very well, because although the time complexity was reduced (in some cases, by ~700ms), I had to add a property for every paramenter which was passed, which ended up taking a lot of space than I anticipated initially. Imagine processing a small <code>640x320</code> image with a 307200-sized array each element consisting of its repective <code>RGBA</code> data along with pixel-dependent 4 parameters, that&rsquo;s about <kbd>307200 * 4 values * 4 parameters * 8 Bits = 4.915 Megabytes</kbd>! That was way more than expected and indicated the fact that I had to shift all my calculations, modifications, everything while keeping the <code>matchT</code> structure in mind, because in all honesty, this was the only solution that efficiently employed <code>JavaScript-specific</code> features to reduce the aforementioned induced complexity, so I went with that.</p>
+
+<p>Now that I come to think of it, maybe Eugene faced the same problem as well?</p>
+
+<p>So more or less, this meant that any change that I brought to the library, which affected the pixel arrays in an way whatsoever, had to consider the negative affects (if any), that it caused to them, and if the these were more than I could mend, I had to come up with a different approach.</p>
+
+<p>By the next mid-week I had a custom optimized version of the algorithm, and the only reason I believe things moved so fast was because my first step was to modularize the whole library, each component isolated, yet working together, without which, this would have taken me entire two weeks!</p>
+
+<p>Altering each component one-by-one, I felt a need to observe the changes that would be incurred if I changed each parameter to every finite value they could possibly be assigned to, but to do that I would&rsquo;ve needed to individually each different set of configuration on my rig atleast a <kbd>5 blur_sizes * 100 lp_thresholds * 100 eigen_values * 100 matchThresholds = 5,000,000</kbd> runs for every configuration! As surprising as it may sound, I actually did not have that kind of time. At all.</p>
+
+<p>So to automate tasks such as the above, and even more complex ones as they came, to find out the best configuration (from variables, functions to non-primitive types) for the <a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a>, I came up with an idea.</p>
+
+<h2 id="matcher-cli-https-github-com-publiclab-matcher-cli"><a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a></h2>
+
+<p>The <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> module was never originally included in my proposal, but it was a beneficial add-on that had to be made, and also interested me a great deal, so I got to work.</p>
+
+<script src="https://gist.github.com/rexagod/d8c724a5bb8a4607b04767d9b3583ceb.js"></script>
+
+<p>What <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> aims to do is pretty simple and straight-forward: Control every aspect of <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-core</code></a>, right from the command-line interface. In detail, however, this means that <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> will utilize <code>puppeteer</code> to take absolute control over the headless environment it creates. This environment is then deployed on a port which will house a <code>Chromium</code> instance, running the user&rsquo;s configuration of the <code>matcher-core</code> library in one of it&rsquo;s pages. These &ldquo;virtual pages&rdquo; can then be scraped for immense testing improvements and debugging, since one will be  able to <em>actually see</em> the visual impacts of their code base inside the headless environment once it gets deployed.</p>
+
+<pre><code class="language-js">  //  allows for dynamic assignment of commands to their respective functions
+
+  if (eval(`commands.${query}`) !== undefined) {
+    eval(`commands.${query}()`);
+  } else if (eval(`summoner.${query}`)) {
+    console.log(eval(`summoner.${query}`));
+  } else {
+    error(`Invalid command: &quot;${query}&quot;, exiting...\n`);
+    process.exit();
+  }
+</code></pre>
+
+<p>This module will work based on different &ldquo;commands&rdquo; as they get defined in the <a href="https://github.com/publiclab/matcher-cli/blob/main/src/matcher-commands.js" target="_blank"><code>matcher-commands.js</code></a> entry point. Commands will execute to trigger their respective linked functions, which can be any operation the user wants to perform once the virtual pages are setup. In order to generalize this library for the users, I started of by removing off all my older custom code to conduct experiments with the core, and rather including useful and simple commands that the users will frequent.</p>
+
+<p>So I began adding the basic <code>clear</code> and <code>update</code> functionality for the CLI. <code>clear</code>, as one can easily discern, cleans out the console screen and is a pretty simple command itself, nothing complex. Although, my main motive behind setting up such a basic command was so that users can actually look at its implementation and learn how easy it is to ship your own commands to <code>matcher-cli</code>! Moving on to my favorite command, if that&rsquo;s a thing, the  <code>update</code> command can prove helpful for all the non-technical users who don&rsquo;t want to <code>git pull</code> or <code>npm update</code> every release of the module, or spend hours fixing bugs, all they need to do is run <code>matcher update</code> and all of their files, along with the latest (or pinned) versions of dependencies will be compared against the code base, and all the discrepancies can be resolved. Other than these, some of the more &ldquo;complex&rdquo; commands can be found in  <a href="https://github.com/publiclab/matcher-cli/blob/main/src/matcher-summon.js" target="_blank"><code>matcher-summon.js</code></a>, namely, <code>corners</code> and <code>matches</code>, that search the virtual pages for detected matches and rich matches, respectively, under the current configuration of the core.</p>
+
+<p>This has been pretty much what I&rsquo;ve been doing for the past two weeks, and to for the future, I&rsquo;ll focus on setting this up on Continuous Integration platforms, integrating <code>core</code> and a Leaflet UI for the same into <a href="https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi" target="_blank"><code>Leaflet.DistortableImage</code></a>, setting up Jest to run (headless) tests, and get both of my libraries forked!</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I backed this because <a href="https://twitter.com/PublicLab?ref_src=twsrc%5Etfw">@PublicLab</a> is great. <a href="https://t.co/vQ0GFdpdbv">https://t.co/vQ0GFdpdbv</a></p>&mdash; Shah Selbe (@shahselbe) <a href="https://twitter.com/shahselbe/status/1141337106989535232?ref_src=twsrc%5Etfw">June 19, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p><strong>PS. You might want to checkout the new <code>#BabyLegs</code> campaign we&rsquo;ve been working on, it uses easy-to-find materials to monitor <code>#microplastics</code> in waterways, and you can back it on <a href="https://t.co/ueE2pS7CQC" target="_blank">kickstarter</a> right now to receive amazing prizes!</strong>
+<br/>
+<br/>
+Thank you for giving this a read, ciao! 👋</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>rexagod </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1298</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=%2f2019%2fnpm_init_matcher.js%2f&amp;text=%24%20npm%20init%20matcher.js&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=%2f2019%2fnpm_init_matcher.js%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=%2f2019%2fnpm_init_matcher.js%2f&amp;title=%24%20npm%20init%20matcher.js" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="/2019/vi_.travis.yml/" class="next" rel="next" title="$ vi .travis.yml">$ vi .travis.yml&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'rexablog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "rexablog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="/">rexagod</a></span>
+         
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142539359-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="/2019/npm_init_matcher.js/" />
+  
+  <link rel="canonical" href="/2019/vi_.travis.yml/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           $ vi .travis.yml | rexablog
+       
+  </title>
+  <meta name="title" content="$ vi .travis.yml | rexablog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="$ vi .travis.yml"/>
+<meta name="twitter:description" content="Google Summer of Code @ Public Lab: Summary#2"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "$ vi .travis.yml",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/2019/vi_.travis.yml/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "/",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  
+  "wordcount": 964,
+  "url": "/2019/vi_.travis.yml/",
+  "datePublished": "2019-06-21T04:10:06+05:30",
+  "dateModified": "2019-06-21T04:10:06+05:30",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "rexagod",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Pranshu Srivastava"
+  },
+  "description": "Google Summer of Code @ Public Lab: Summary#2"
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="/">rexablog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="/">rexablog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">$ vi .travis.yml</h1>
+        <div class="post-meta">
+            Written by <a href="/" rel="author">Pranshu Srivastava</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-06-21 >21 June 2019</time>
+                </span>
+                
+                <i class="iconfont icon-timer"></i>
+                5 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/summary_2.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p><br/></p>
+
+<h1 id="public-lab-3-sup-rd-sup-4-sup-th-sup-week">Public Lab: 3<sup>rd</sup> &amp; 4<sup>th</sup> Week</h1>
+
+<blockquote>
+<p>Having a robust initial codebase is all that matters. Integration will be frictionless, and you can be sure of a much more stable environment, right from the beginning.</p>
+</blockquote>
+
+<p>The third and forth week was an interesting time slice. What made it so, was the fact that the codebase now had a sturdy foundation, so in a way the hard part was over. It was really relaxing to see that the long nights of laboring had been done with, which meant I could now shift my topic of concern from establishing a strong codebase to working on its integrations and add-ons, the interesting stuff!</p>
+
+<p>Other than reviewing PRs, opening FTOs, and general debugging, these two weeks can be best characterized by the undertaking of the following tasks, in this order, and detailed further below, in the same order.</p>
+
+<ul>
+<li>Integrate <a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a> algorithm into <a href="https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi" target="_blank"><code>Leaflet.DistortableImage</code></a>.</li>
+<li><mark>The Auto-Stitcher module</mark>: Setup a UI for visualizing <a href="https://github.com/publiclab/matcher-core" target="_blank"><code>matcher-core</code></a>&rsquo;s results inside <a href="https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi" target="_blank"><code>Leaflet.DistortableImage</code></a> using only <code>Leaflet</code> as the helper library.</li>
+<li>Setting up Babel, Browserify, ESLint, and Terser in both of the modules to abide by code standards, and to ensure a fine level of code quality in the future.</li>
+<li>Finishing up on <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a>, i.e., incorporating support for background processing, dynamic command assignments, removing <a href="https://github.com/publiclab/matcher-cli/commit/343c4e8ba4a07c4c6b43a618e59a0a6e02c625f6" target="_blank">unwanted dependencies</a>, and adding necessary <code>npm scripts</code> in general.</li>
+<li>Setting up support for Continuous Integration platforms as discussed in the previous post, and actually demonstrating the same on a PR, in order to expose its dynamic nature.</li>
+<li>Setting up Jest as a testing, mocking, and visualizing framework for the <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> library, and demonstrate how the users can exploit this new &ldquo;headless&rdquo; dimension for expanding on the traditional approaches towards testing.</li>
+</ul>
+
+<p>Starting off with integrating the <code>core</code> algorithm in the <a href="https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi" target="_blank"><code>Leaflet.DistortableImage</code></a> library, in doing so I didn&rsquo;t face any issues whatsoever, and you should not too if you, one, modularize your code into logical components that actually make sense, and not because everyone&rsquo;s talking about it, and two, embrace functional programming, and for the love of god, use only a limited amount of syntactic sugar, only as much as you need. You can&rsquo;t go around town telling people you&rsquo;ve actually embraced functional programming, while there still exist big clunky <code>class</code>es in your code. So just keep that in mind, or not, since this is just how I feel, and it&rsquo;s just my take on it.</p>
+
+<pre><code class="language-js">if(document.querySelectorAll(&quot;svg &gt; g &gt; path&quot;).length) {
+      [].slice
+      .call(document.querySelectorAll(&quot;svg &gt; g &gt; path&quot;))
+      .slice(0,3)
+      .map(function(x) {
+        x.parentNode.removeChild(x);
+      });
+    }
+    var lat_offset = -best_point.lat + corresponding_best_point.lat;
+    var lng_offset = -best_point.lng + corresponding_best_point.lng;
+    // relocation code
+    // getCorners -&gt; formal values -&gt; copy of values -&gt; not useful here
+    // _corners -&gt; actual values -&gt; copy of reference
+    // hence can be useful to mutate states (position of the images)
+    overlay._corners[0] = [
+      processedPoints.images[1].getCorner(0).lat - lat_offset,
+      processedPoints.images[1].getCorner(0).lng - lng_offset
+    ];
+    overlay._corners[1] = [
+      processedPoints.images[1].getCorner(1).lat - lat_offset,
+      processedPoints.images[1].getCorner(1).lng - lng_offset
+    ];
+    overlay._corners[2] = [
+      processedPoints.images[1].getCorner(2).lat - lat_offset,
+      processedPoints.images[1].getCorner(2).lng - lng_offset
+    ];
+    overlay._corners[3] = [
+      processedPoints.images[1].getCorner(3).lat - lat_offset,
+      processedPoints.images[1].getCorner(3).lng - lng_offset
+    ];
+    var zoom_level = map.getZoom();
+    map.setView(overlay.getCenter(), (zoom_level%2?zoom_level+1:zoom_level-1));
+    L.DomEvent.on(overlay._image, 'mousedrag', overlay.editing.enable, overlay.editing);
+</code></pre>
+
+<p>Setting up the <code>auto-stitcher</code> module was all about converting independent image-pixel space coordinates back to their respective latitudes and longitudes, then &ldquo;projecting&rdquo; the identified points of interests, along with connecting <code>polylines</code> for the top three most confident matches, onto the images, while keeping away any induced latency that might have crept in due to the drag, so I had to account for that as well. After that, came the &ldquo;stitching&rdquo; part, which essentially required the mutation of the overlay corners, translating them along certain &ldquo;connecting paths&rdquo; connecting the two.</p>
+
+<p>Setting up Babel, Browserify, ESLint, and Terser was pretty straight-forward and there isn&rsquo;t much to discuss here, although one should never undermine the importance of such &ldquo;quality-maintaining&rdquo; modules.</p>
+
+<p><a href="https://travis-ci.org/publiclab/matcher-cli" target="_blank">Automating the CLI on CI</a> was one of the things I had in mind for a while, and was really interested to see its potential as well, so without wasting any time, I spun up a <code>.travis.yml</code> script that allowed me to deploy <a href="https://github.com/publiclab/matcher-cli" target="_blank"><code>matcher-cli</code></a> on <code>Travis</code> exactly how I wanted to. The testing however required some victim issues to checkout the automated cross-posting tech before finally making it dynamic for PRs, and so <a href="https://github.com/publiclab/matcher-core/issues/2" target="_blank">issue#2</a> was, I think over a span of a few hours, spammed with exactly 36 messages right form the CI, in sets of three (Node 8, 10, and 12) due to the 12 different configurations of the same script I had to test, in order to get a perfect CI log, along with a snapshot of the virtual page right in the CI! Among many other possibilities, this would also allow the user to change the configurations right in their forks, submit a PR, all inside GitHub, and without even cloning the repository on their local, and <code>Travis</code> would report every thing they need to know right in their PRs. Headless automation FTW!</p>
+
+<p>Going with Jest as the ultimate testing, mocking, and visualizing framework for the <code>matcher-cli</code> library was actually something we discussed about on one of the <a href="https://github.com/publiclab/simple-data-grapher/issues/49" target="_blank">issues</a> and seeing the maximum amount of advantages along with headless and async compatibility, with support for almost anything you&rsquo;d expect, or rather want out of a test runner, made this my first choice fot the same module.</p>
+
+<p>This pretty much summarizes my third and fourth week of Google Summer of Code at Public Lab, and be sure to chime in for the future ones!</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I backed this because <a href="https://twitter.com/PublicLab?ref_src=twsrc%5Etfw">@PublicLab</a> is great. <a href="https://t.co/vQ0GFdpdbv">https://t.co/vQ0GFdpdbv</a></p>&mdash; Shah Selbe (@shahselbe) <a href="https://twitter.com/shahselbe/status/1141337106989535232?ref_src=twsrc%5Etfw">June 19, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p><strong>PS. You might want to checkout the new <code>#BabyLegs</code> campaign we&rsquo;ve been working on, it uses easy-to-find materials to monitor <code>#microplastics</code> in waterways, and you can back it on <a href="https://t.co/ueE2pS7CQC" target="_blank">kickstarter</a> right now to receive amazing prizes!</strong>
+<br/>
+<br/>
+Thank you for giving this a read, ciao! 👋</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>rexagod </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>964</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=%2f2019%2fvi_.travis.yml%2f&amp;text=%24%20vi%20.travis.yml&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=%2f2019%2fvi_.travis.yml%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=%2f2019%2fvi_.travis.yml%2f&amp;title=%24%20vi%20.travis.yml" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+             
+            <p class="copyright-item">
+                Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="/2019/npm_init_matcher.js/" class="prev" rel="prev" title="$ npm init matcher.js"><i class="iconfont icon-dajiantou"></i>&nbsp;$ npm init matcher.js</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'rexablog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "rexablog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="/">rexagod</a></span>
+         
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-142539359-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+     </div>
+  </body>
+</html>

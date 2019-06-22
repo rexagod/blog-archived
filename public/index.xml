@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rexablog on rexablog</title>
+    <link>/</link>
+    <description>Recent content in rexablog on rexablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Jun 2019 04:10:06 +0530</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>$ vi .travis.yml</title>
+      <link>/2019/vi_.travis.yml/</link>
+      <pubDate>Fri, 21 Jun 2019 04:10:06 +0530</pubDate>
+      
+      <guid>/2019/vi_.travis.yml/</guid>
+      <description>
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;public-lab-3-sup-rd-sup-4-sup-th-sup-week&#34;&gt;Public Lab: 3&lt;sup&gt;rd&lt;/sup&gt; &amp;amp; 4&lt;sup&gt;th&lt;/sup&gt; Week&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Having a robust initial codebase is all that matters. Integration will be frictionless, and you can be sure of a much more stable environment, right from the beginning.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The third and forth week was an interesting time slice. What made it so, was the fact that the codebase now had a sturdy foundation, so in a way the hard part was over. It was really relaxing to see that the long nights of laboring had been done with, which meant I could now shift my topic of concern from establishing a strong codebase to working on its integrations and add-ons, the interesting stuff!&lt;/p&gt;
+
+&lt;p&gt;Other than reviewing PRs, opening FTOs, and general debugging, these two weeks can be best characterized by the undertaking of the following tasks, in this order, and detailed further below, in the same order.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integrate &lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt; algorithm into &lt;a href=&#34;https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;Leaflet.DistortableImage&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The Auto-Stitcher module&lt;/mark&gt;: Setup a UI for visualizing &lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt;&amp;rsquo;s results inside &lt;a href=&#34;https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;Leaflet.DistortableImage&lt;/code&gt;&lt;/a&gt; using only &lt;code&gt;Leaflet&lt;/code&gt; as the helper library.&lt;/li&gt;
+&lt;li&gt;Setting up Babel, Browserify, ESLint, and Terser in both of the modules to abide by code standards, and to ensure a fine level of code quality in the future.&lt;/li&gt;
+&lt;li&gt;Finishing up on &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt;, i.e., incorporating support for background processing, dynamic command assignments, removing &lt;a href=&#34;https://github.com/publiclab/matcher-cli/commit/343c4e8ba4a07c4c6b43a618e59a0a6e02c625f6&#34; target=&#34;_blank&#34;&gt;unwanted dependencies&lt;/a&gt;, and adding necessary &lt;code&gt;npm scripts&lt;/code&gt; in general.&lt;/li&gt;
+&lt;li&gt;Setting up support for Continuous Integration platforms as discussed in the previous post, and actually demonstrating the same on a PR, in order to expose its dynamic nature.&lt;/li&gt;
+&lt;li&gt;Setting up Jest as a testing, mocking, and visualizing framework for the &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; library, and demonstrate how the users can exploit this new &amp;ldquo;headless&amp;rdquo; dimension for expanding on the traditional approaches towards testing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Starting off with integrating the &lt;code&gt;core&lt;/code&gt; algorithm in the &lt;a href=&#34;https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;Leaflet.DistortableImage&lt;/code&gt;&lt;/a&gt; library, in doing so I didn&amp;rsquo;t face any issues whatsoever, and you should not too if you, one, modularize your code into logical components that actually make sense, and not because everyone&amp;rsquo;s talking about it, and two, embrace functional programming, and for the love of god, use only a limited amount of syntactic sugar, only as much as you need. You can&amp;rsquo;t go around town telling people you&amp;rsquo;ve actually embraced functional programming, while there still exist big clunky &lt;code&gt;class&lt;/code&gt;es in your code. So just keep that in mind, or not, since this is just how I feel, and it&amp;rsquo;s just my take on it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;if(document.querySelectorAll(&amp;quot;svg &amp;gt; g &amp;gt; path&amp;quot;).length) {
+      [].slice
+      .call(document.querySelectorAll(&amp;quot;svg &amp;gt; g &amp;gt; path&amp;quot;))
+      .slice(0,3)
+      .map(function(x) {
+        x.parentNode.removeChild(x);
+      });
+    }
+    var lat_offset = -best_point.lat + corresponding_best_point.lat;
+    var lng_offset = -best_point.lng + corresponding_best_point.lng;
+    // relocation code
+    // getCorners -&amp;gt; formal values -&amp;gt; copy of values -&amp;gt; not useful here
+    // _corners -&amp;gt; actual values -&amp;gt; copy of reference
+    // hence can be useful to mutate states (position of the images)
+    overlay._corners[0] = [
+      processedPoints.images[1].getCorner(0).lat - lat_offset,
+      processedPoints.images[1].getCorner(0).lng - lng_offset
+    ];
+    overlay._corners[1] = [
+      processedPoints.images[1].getCorner(1).lat - lat_offset,
+      processedPoints.images[1].getCorner(1).lng - lng_offset
+    ];
+    overlay._corners[2] = [
+      processedPoints.images[1].getCorner(2).lat - lat_offset,
+      processedPoints.images[1].getCorner(2).lng - lng_offset
+    ];
+    overlay._corners[3] = [
+      processedPoints.images[1].getCorner(3).lat - lat_offset,
+      processedPoints.images[1].getCorner(3).lng - lng_offset
+    ];
+    var zoom_level = map.getZoom();
+    map.setView(overlay.getCenter(), (zoom_level%2?zoom_level+1:zoom_level-1));
+    L.DomEvent.on(overlay._image, &#39;mousedrag&#39;, overlay.editing.enable, overlay.editing);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setting up the &lt;code&gt;auto-stitcher&lt;/code&gt; module was all about converting independent image-pixel space coordinates back to their respective latitudes and longitudes, then &amp;ldquo;projecting&amp;rdquo; the identified points of interests, along with connecting &lt;code&gt;polylines&lt;/code&gt; for the top three most confident matches, onto the images, while keeping away any induced latency that might have crept in due to the drag, so I had to account for that as well. After that, came the &amp;ldquo;stitching&amp;rdquo; part, which essentially required the mutation of the overlay corners, translating them along certain &amp;ldquo;connecting paths&amp;rdquo; connecting the two.&lt;/p&gt;
+
+&lt;p&gt;Setting up Babel, Browserify, ESLint, and Terser was pretty straight-forward and there isn&amp;rsquo;t much to discuss here, although one should never undermine the importance of such &amp;ldquo;quality-maintaining&amp;rdquo; modules.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://travis-ci.org/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;Automating the CLI on CI&lt;/a&gt; was one of the things I had in mind for a while, and was really interested to see its potential as well, so without wasting any time, I spun up a &lt;code&gt;.travis.yml&lt;/code&gt; script that allowed me to deploy &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; on &lt;code&gt;Travis&lt;/code&gt; exactly how I wanted to. The testing however required some victim issues to checkout the automated cross-posting tech before finally making it dynamic for PRs, and so &lt;a href=&#34;https://github.com/publiclab/matcher-core/issues/2&#34; target=&#34;_blank&#34;&gt;issue#2&lt;/a&gt; was, I think over a span of a few hours, spammed with exactly 36 messages right form the CI, in sets of three (Node 8, 10, and 12) due to the 12 different configurations of the same script I had to test, in order to get a perfect CI log, along with a snapshot of the virtual page right in the CI! Among many other possibilities, this would also allow the user to change the configurations right in their forks, submit a PR, all inside GitHub, and without even cloning the repository on their local, and &lt;code&gt;Travis&lt;/code&gt; would report every thing they need to know right in their PRs. Headless automation FTW!&lt;/p&gt;
+
+&lt;p&gt;Going with Jest as the ultimate testing, mocking, and visualizing framework for the &lt;code&gt;matcher-cli&lt;/code&gt; library was actually something we discussed about on one of the &lt;a href=&#34;https://github.com/publiclab/simple-data-grapher/issues/49&#34; target=&#34;_blank&#34;&gt;issues&lt;/a&gt; and seeing the maximum amount of advantages along with headless and async compatibility, with support for almost anything you&amp;rsquo;d expect, or rather want out of a test runner, made this my first choice fot the same module.&lt;/p&gt;
+
+&lt;p&gt;This pretty much summarizes my third and fourth week of Google Summer of Code at Public Lab, and be sure to chime in for the future ones!&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I backed this because &lt;a href=&#34;https://twitter.com/PublicLab?ref_src=twsrc%5Etfw&#34;&gt;@PublicLab&lt;/a&gt; is great. &lt;a href=&#34;https://t.co/vQ0GFdpdbv&#34;&gt;https://t.co/vQ0GFdpdbv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Shah Selbe (@shahselbe) &lt;a href=&#34;https://twitter.com/shahselbe/status/1141337106989535232?ref_src=twsrc%5Etfw&#34;&gt;June 19, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;strong&gt;PS. You might want to checkout the new &lt;code&gt;#BabyLegs&lt;/code&gt; campaign we&amp;rsquo;ve been working on, it uses easy-to-find materials to monitor &lt;code&gt;#microplastics&lt;/code&gt; in waterways, and you can back it on &lt;a href=&#34;https://t.co/ueE2pS7CQC&#34; target=&#34;_blank&#34;&gt;kickstarter&lt;/a&gt; right now to receive amazing prizes!&lt;/strong&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+Thank you for giving this a read, ciao! 👋&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Will update this area soon, check back later! Here&amp;rsquo;s a random graffiti for ya. 👋&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-captioned data-instgrm-permalink=&#34;https://www.instagram.com/p/BzBeOITi1bt/&#34; data-instgrm-version=&#34;12&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:16px;&#34;&gt; &lt;a href=&#34;https://www.instagram.com/p/BzBeOITi1bt/&#34; style=&#34; background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;&#34; target=&#34;_blank&#34;&gt; &lt;div style=&#34; display: flex; flex-direction: row; align-items: center;&#34;&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: column; flex-grow: 1; justify-content: center;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 19% 0;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display:block; height:50px; margin:0 auto 12px; width:50px;&#34;&gt;&lt;svg width=&#34;50px&#34; height=&#34;50px&#34; viewBox=&#34;0 0 60 60&#34; version=&#34;1.1&#34; xmlns=&#34;https://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;https://www.w3.org/1999/xlink&#34;&gt;&lt;g stroke=&#34;none&#34; stroke-width=&#34;1&#34; fill=&#34;none&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;g transform=&#34;translate(-511.000000, -20.000000)&#34; fill=&#34;#000000&#34;&gt;&lt;g&gt;&lt;path d=&#34;M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631&#34;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style=&#34;padding-top: 8px;&#34;&gt; &lt;div style=&#34; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;&#34;&gt; View this post on Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 12.5% 0;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;&#34;&gt;&lt;div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: 8px;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: auto;&#34;&gt; &lt;div style=&#34; width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt; &lt;p style=&#34; margin:8px 0 0 0; padding:0 4px;&#34;&gt; &lt;a href=&#34;https://www.instagram.com/p/BzBeOITi1bt/&#34; style=&#34; color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;&#34; target=&#34;_blank&#34;&gt;&amp;#34;RISE UP!&amp;#34; Next wall is done! This was incredibly spontanious and not thought through at all which us why I&amp;#39;m not really pleased with the end result. But is us what it is, so I take it as practice and will do better next time ✌🏼 I tried some different techniques and effects which actually was fun to do! But after all the background is my favourite part of the entire wall, what do you say? Should I&amp;#39;ve left the colors out for example? • • • • • • ★ #graffiti #wall #colorful #art #artwork #artist #grafflover #sketch #sketching #style #urban  #white #stylewriting #black #markers #letters #handmadefont #lettering #instaart #eschwege&lt;/a&gt;&lt;/p&gt; &lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;A post shared by &lt;a href=&#34;https://www.instagram.com/tillischelli/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;&#34; target=&#34;_blank&#34;&gt; RI$Ξ | GRAFFITI // ARTS&lt;/a&gt; (@tillischelli) on &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2019-06-22T19:00:40+00:00&#34;&gt;Jun 22, 2019 at 12:00pm PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//www.instagram.com/embed.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>$ npm init matcher.js</title>
+      <link>/2019/npm_init_matcher.js/</link>
+      <pubDate>Mon, 10 Jun 2019 04:10:06 +0530</pubDate>
+      
+      <guid>/2019/npm_init_matcher.js/</guid>
+      <description>
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;public-lab-1-sup-st-sup-2-sup-nd-sup-week&#34;&gt;Public Lab: 1&lt;sup&gt;st&lt;/sup&gt; &amp;amp; 2&lt;sup&gt;nd&lt;/sup&gt; Week&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;From refactoring an 7-year-old library, to embedding node support into it, while optimizing it for browser, the first two weeks started off as one of the most interesting but crucial stages of my timeline, and yet somehow, we made it work.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I wouldn&amp;rsquo;t be wrong to say that this period of &lt;mark&gt;Google Summer of Code at Public Lab&lt;/mark&gt; was indeed, in my case, rather epiphanic. I&amp;rsquo;ll explain.&lt;/p&gt;
+
+&lt;p&gt;Other than reviewing PRs and making FTOs, most of my time spent at Public Lab right till the first evaluation, required me to essentially work on a &amp;ldquo;pattern-mining&amp;rdquo; library, called &lt;code&gt;matcher.js&lt;/code&gt;, which would initially consist of just a single module called &lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt; that would help users in searching for rich matches across two images, but interestingly grew to encompass another library, a &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; module, which was originally built to pass custom commands to manipulate the test environment and monitor changes on a local server, and with time, would power Public Lab&amp;rsquo;s first ever headless-driven test written to support Continuous Integration platforms, including cross-posting.&lt;/p&gt;
+
+&lt;h2 id=&#34;matcher-core-https-github-com-publiclab-matcher-core&#34;&gt;&lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt; module works on &lt;a href=&#34;http://www.willowgarage.com/sites/default/files/orb_final.pdf&#34; target=&#34;_blank&#34;&gt;Oriented FAST and Rotated BRIEF (ORB)&lt;/a&gt; algorithm and was developed at OpenCV labs by Ethan Rublee, Vincent Rabaud, Kurt Konolige, and Gary R. Bradski in 2011, as an efficient and viable alternative to SIFT and SURF. ORB was conceived mainly because SIFT and SURF are patented algorithms. ORB, however, is free to use.&lt;/p&gt;
+
+&lt;p&gt;The idea of abstracting such a sophisticated piece of code, and mending it to Public Lab&amp;rsquo;s custom needs seemed ambitious to say the least, and of course, the implementation proved to be my primary concern for the first few days.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+/* a simpler, yet much better way
+* that Eugene kept in mind during
+* the initial implementations
+*/
+
+// the snippet below analyzed all pixels for corners, but initialized `matchT` only for the rich matches
+
+let i = 640 * 480;
+      while (--i &amp;gt;= 0) {
+        screenCorners[i] = new jsfeat.keypoint_t(0, 0, 0, 0, -1);
+        matches[i] = new matchT();      
+      }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As a matter of fact, all the code that was written in the first week unfortunately did not meet my expectations, i.e., I had initially tried to couple ORB&amp;rsquo;s FAST and BRIEF features with &lt;code&gt;Uint8ClampedArray&lt;/code&gt;s instead of the original &lt;code&gt;matchT&lt;/code&gt; structures, which did not seem to work out very well, because although the time complexity was reduced (in some cases, by ~700ms), I had to add a property for every paramenter which was passed, which ended up taking a lot of space than I anticipated initially. Imagine processing a small &lt;code&gt;640x320&lt;/code&gt; image with a 307200-sized array each element consisting of its repective &lt;code&gt;RGBA&lt;/code&gt; data along with pixel-dependent 4 parameters, that&amp;rsquo;s about &lt;kbd&gt;307200 * 4 values * 4 parameters * 8 Bits = 4.915 Megabytes&lt;/kbd&gt;! That was way more than expected and indicated the fact that I had to shift all my calculations, modifications, everything while keeping the &lt;code&gt;matchT&lt;/code&gt; structure in mind, because in all honesty, this was the only solution that efficiently employed &lt;code&gt;JavaScript-specific&lt;/code&gt; features to reduce the aforementioned induced complexity, so I went with that.&lt;/p&gt;
+
+&lt;p&gt;Now that I come to think of it, maybe Eugene faced the same problem as well?&lt;/p&gt;
+
+&lt;p&gt;So more or less, this meant that any change that I brought to the library, which affected the pixel arrays in an way whatsoever, had to consider the negative affects (if any), that it caused to them, and if the these were more than I could mend, I had to come up with a different approach.&lt;/p&gt;
+
+&lt;p&gt;By the next mid-week I had a custom optimized version of the algorithm, and the only reason I believe things moved so fast was because my first step was to modularize the whole library, each component isolated, yet working together, without which, this would have taken me entire two weeks!&lt;/p&gt;
+
+&lt;p&gt;Altering each component one-by-one, I felt a need to observe the changes that would be incurred if I changed each parameter to every finite value they could possibly be assigned to, but to do that I would&amp;rsquo;ve needed to individually each different set of configuration on my rig atleast a &lt;kbd&gt;5 blur_sizes * 100 lp_thresholds * 100 eigen_values * 100 matchThresholds = 5,000,000&lt;/kbd&gt; runs for every configuration! As surprising as it may sound, I actually did not have that kind of time. At all.&lt;/p&gt;
+
+&lt;p&gt;So to automate tasks such as the above, and even more complex ones as they came, to find out the best configuration (from variables, functions to non-primitive types) for the &lt;a href=&#34;https://github.com/publiclab/matcher-core&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt;, I came up with an idea.&lt;/p&gt;
+
+&lt;h2 id=&#34;matcher-cli-https-github-com-publiclab-matcher-cli&#34;&gt;&lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; module was never originally included in my proposal, but it was a beneficial add-on that had to be made, and also interested me a great deal, so I got to work.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/rexagod/d8c724a5bb8a4607b04767d9b3583ceb.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;What &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; aims to do is pretty simple and straight-forward: Control every aspect of &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-core&lt;/code&gt;&lt;/a&gt;, right from the command-line interface. In detail, however, this means that &lt;a href=&#34;https://github.com/publiclab/matcher-cli&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-cli&lt;/code&gt;&lt;/a&gt; will utilize &lt;code&gt;puppeteer&lt;/code&gt; to take absolute control over the headless environment it creates. This environment is then deployed on a port which will house a &lt;code&gt;Chromium&lt;/code&gt; instance, running the user&amp;rsquo;s configuration of the &lt;code&gt;matcher-core&lt;/code&gt; library in one of it&amp;rsquo;s pages. These &amp;ldquo;virtual pages&amp;rdquo; can then be scraped for immense testing improvements and debugging, since one will be  able to &lt;em&gt;actually see&lt;/em&gt; the visual impacts of their code base inside the headless environment once it gets deployed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  //  allows for dynamic assignment of commands to their respective functions
+
+  if (eval(`commands.${query}`) !== undefined) {
+    eval(`commands.${query}()`);
+  } else if (eval(`summoner.${query}`)) {
+    console.log(eval(`summoner.${query}`));
+  } else {
+    error(`Invalid command: &amp;quot;${query}&amp;quot;, exiting...\n`);
+    process.exit();
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This module will work based on different &amp;ldquo;commands&amp;rdquo; as they get defined in the &lt;a href=&#34;https://github.com/publiclab/matcher-cli/blob/main/src/matcher-commands.js&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-commands.js&lt;/code&gt;&lt;/a&gt; entry point. Commands will execute to trigger their respective linked functions, which can be any operation the user wants to perform once the virtual pages are setup. In order to generalize this library for the users, I started of by removing off all my older custom code to conduct experiments with the core, and rather including useful and simple commands that the users will frequent.&lt;/p&gt;
+
+&lt;p&gt;So I began adding the basic &lt;code&gt;clear&lt;/code&gt; and &lt;code&gt;update&lt;/code&gt; functionality for the CLI. &lt;code&gt;clear&lt;/code&gt;, as one can easily discern, cleans out the console screen and is a pretty simple command itself, nothing complex. Although, my main motive behind setting up such a basic command was so that users can actually look at its implementation and learn how easy it is to ship your own commands to &lt;code&gt;matcher-cli&lt;/code&gt;! Moving on to my favorite command, if that&amp;rsquo;s a thing, the  &lt;code&gt;update&lt;/code&gt; command can prove helpful for all the non-technical users who don&amp;rsquo;t want to &lt;code&gt;git pull&lt;/code&gt; or &lt;code&gt;npm update&lt;/code&gt; every release of the module, or spend hours fixing bugs, all they need to do is run &lt;code&gt;matcher update&lt;/code&gt; and all of their files, along with the latest (or pinned) versions of dependencies will be compared against the code base, and all the discrepancies can be resolved. Other than these, some of the more &amp;ldquo;complex&amp;rdquo; commands can be found in  &lt;a href=&#34;https://github.com/publiclab/matcher-cli/blob/main/src/matcher-summon.js&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;matcher-summon.js&lt;/code&gt;&lt;/a&gt;, namely, &lt;code&gt;corners&lt;/code&gt; and &lt;code&gt;matches&lt;/code&gt;, that search the virtual pages for detected matches and rich matches, respectively, under the current configuration of the core.&lt;/p&gt;
+
+&lt;p&gt;This has been pretty much what I&amp;rsquo;ve been doing for the past two weeks, and to for the future, I&amp;rsquo;ll focus on setting this up on Continuous Integration platforms, integrating &lt;code&gt;core&lt;/code&gt; and a Leaflet UI for the same into &lt;a href=&#34;https://github.com/rexagod/Leaflet.DistortableImage/commits/rexa-soc-ldi&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;Leaflet.DistortableImage&lt;/code&gt;&lt;/a&gt;, setting up Jest to run (headless) tests, and get both of my libraries forked!&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I backed this because &lt;a href=&#34;https://twitter.com/PublicLab?ref_src=twsrc%5Etfw&#34;&gt;@PublicLab&lt;/a&gt; is great. &lt;a href=&#34;https://t.co/vQ0GFdpdbv&#34;&gt;https://t.co/vQ0GFdpdbv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Shah Selbe (@shahselbe) &lt;a href=&#34;https://twitter.com/shahselbe/status/1141337106989535232?ref_src=twsrc%5Etfw&#34;&gt;June 19, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;strong&gt;PS. You might want to checkout the new &lt;code&gt;#BabyLegs&lt;/code&gt; campaign we&amp;rsquo;ve been working on, it uses easy-to-find materials to monitor &lt;code&gt;#microplastics&lt;/code&gt; in waterways, and you can back it on &lt;a href=&#34;https://t.co/ueE2pS7CQC&#34; target=&#34;_blank&#34;&gt;kickstarter&lt;/a&gt; right now to receive amazing prizes!&lt;/strong&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+Thank you for giving this a read, ciao! 👋&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    <url>
+      <loc>/2019/vi_.travis.yml/</loc>
+      
+      <lastmod>2019-06-21T04:10:06+05:30</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/about/</loc>
+      
+      <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/2019/npm_init_matcher.js/</loc>
+      
+      <lastmod>2019-06-10T04:10:06+05:30</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/categories/</loc>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/posts/</loc>
+      
+      <lastmod>2019-06-21T04:10:06+05:30</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/tags/</loc>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/categories/%5C-google-summer-of-code/</loc>
+      
+      <lastmod>2019-06-21T04:10:06+05:30</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>/</loc>
+      
+      <lastmod>2019-06-21T04:10:06+05:30</lastmod>
+      
+      
+      <changefreq>daily</changefreq>
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+</urlset>
