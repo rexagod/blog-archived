@@ -2,7 +2,7 @@
 title: "$ vi .travis.yml"
 date: 2019-06-21T04:10:06+05:30
 description: "Google Summer of Code @ Public Lab: Summary#2"
-categories: ["\\\PGoogle\PSummer\Pof\PCode"]
+categories: ["Google Summer of Code"]
 featured_image: "/summary_2.jpg"
 author: "Pranshu Srivastava"
 ---

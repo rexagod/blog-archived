@@ -2,7 +2,7 @@
 title: "$ npm init matcher.js"
 date: 2019-06-10T04:10:06+05:30
 description: "Google Summer of Code @ Public Lab: Summary#1"
-categories: ["\\\PGoogle\PSummer\Pof\PCode"]
+categories: ["Google Summer of Code"]
 featured_image: "/summary_1.jpg"
 author: "Pranshu Srivastava"
 ---
