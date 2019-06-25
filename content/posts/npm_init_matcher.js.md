@@ -9,7 +9,7 @@ author: "Pranshu Srivastava"
 <br/>
 # Public Lab: 1<sup>st</sup> & 2<sup>nd</sup> Week
 
-> From refactoring an 7-year-old library, to embedding node support into it, while optimizing it for browser, the first two weeks started off as one of the most interesting but crucial stages of my timeline, and yet somehow, we made it work.
+> From refactoring a 7-year-old library, to embedding node support into it, while optimizing it for browser, the first two weeks started off as one of the most interesting but crucial stages of my timeline, and yet somehow, we made it work.
 
 I wouldn't be wrong to say that this period of <mark>Google Summer of Code at Public Lab</mark> was indeed, in my case, rather epiphanic. I'll explain.
 
