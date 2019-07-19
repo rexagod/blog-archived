@@ -11,7 +11,7 @@ author: "Pranshu Srivastava"
 
 > Having a robust initial codebase is all that matters. Integration will be frictionless, and you can be sure of a much more stable environment, right from the beginning.
 
-The third and forth week was an interesting time slice. What made it so, was the fact that the codebase now had a sturdy foundation, so in a way the hard part was over. It was really relaxing to see that the long nights of laboring had been done with, which meant I could now shift my topic of concern from establishing a strong codebase to working on its integrations and add-ons, the interesting stuff!
+The third and fourth week was an interesting time slice. What made it so, was the fact that the codebase now had a sturdy foundation, so in a way the hard part was over. It was really relaxing to see that the long nights of laboring had been done with, which meant I could now shift my topic of concern from establishing a strong codebase to working on its integrations and add-ons, the interesting stuff!
 
 Other than reviewing PRs, opening FTOs, and general debugging, these two weeks can be best characterized by the undertaking of the following tasks, in this order, and detailed further below, in the same order.
 
